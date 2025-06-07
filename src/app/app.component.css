@@ -1,0 +1,27 @@
+/* Hace que el layout ocupe toda la altura de la ventana */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Hace que el main crezca para ocupar el espacio entre navbar y footer */
+.main-content {
+  flex: 1;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px;
+    min-height: 510px;
+}
+
+.row{
+
+    padding: 100px;
+}
+
+
+

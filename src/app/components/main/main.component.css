@@ -1,0 +1,13 @@
+
+main{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px;
+    min-height: 350px;
+}
+
+.row{
+
+    padding: 100px;
+}
