@@ -28,10 +28,9 @@
         <div *ngSwitchCase="1">
           <h5>¿Cada cuánto se realiza el diagnóstico?</h5>
           <select class="form-select mt-3" [(ngModel)]="intervalo">
-            <option value="5">Cada 5 segundos</option>
-            <option value="10">Cada 10 segundos</option>
+            <option value="15">Cada 15 segundos</option>
             <option value="30">Cada 30 segundos</option>
-            <option value="60">Cada 1 minuto</option>
+            <option value="60">Cada 60 segundos</option>
           </select>
           <a class="btn btn-danger mt-4" href="/">Salir</a>
           <button class="btn btn-primary mt-4 float-end" (click)="nextStep()">Siguiente</button>
