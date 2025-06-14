@@ -1,13 +1,19 @@
 import { Routes } from '@angular/router';
-import { RouterModule} from '@angular/router';
-import { NgModule } from '@angular/core';
 import { MainComponent } from './components/main/main.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { WizardComponent } from './components/wizard/wizard.component';
-
 
 export const routes: Routes = [
-    { path: '', component: MainComponent},
-    {path: 'wizard/:tipo', component: WizardComponent}
+  { path: '', component: MainComponent },
+
+  {
+    path: 'wizard/:tipo',
+    loadComponent: () => import('./components/wizard/wizard.component').then(m => m.WizardComponent)
+  },
+  {
+    path: 'resultados/:tipo/:id',
+    loadComponent: () => import('./components/resultados/resultados.component').then(m => m.ResultadosComponent)
+  },
+  {
+    path: 'resultados',
+    loadComponent: () => import('./components/resultados-list/resultados-list.component').then(m => m.ResultadosListComponent)
+  }
 ];

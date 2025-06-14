@@ -1,41 +1,54 @@
 <app-navbar></app-navbar>
 
-<main class="main-content text-center">
-  <div class="row">
-    <!-- Card 1 -->
+<main class="main-content container">
+  <div class="row justify-content-center">
+
+    <!-- Procesos activos -->
     <div class="col-md-4 mb-4">
-      <div class="card h-100 bg-light">
-        <div class="card-body">
-          <h5 class="card-title">Procesos activos</h5>
-          <a class="nav-link" [routerLink]="['/wizard', 'procesos']"><i class="bi bi-plus-square fs-1"></i></a>
-
+      <div class="card card-dashboard shadow-sm">
+        <div class="card-body text-center">
+          <div class="icon-box text-info">
+            <i class="bi bi-cpu fs-1"></i>
+          </div>
+          <h5 class="card-title mt-3">Procesos activos</h5>
+          <a [routerLink]="['/wizard', 'procesos']" class="btn btn-outline-info mt-2">
+            Iniciar diagnóstico
+          </a>
         </div>
       </div>
     </div>
 
-    <!-- Card 2 -->
+    <!-- Uso de memoria -->
     <div class="col-md-4 mb-4">
-      <div class="card h-100 bg-light">
-        <div class="card-body">
-          <h5 class="card-title">Uso de memoria</h5>
-          <a class="nav-link" [routerLink]="['/wizard', 'memoria']"><i class="bi bi-plus-square fs-1"></i></a>
-
+      <div class="card card-dashboard shadow-sm">
+        <div class="card-body text-center">
+          <div class="icon-box text-success">
+            <i class="bi bi-memory fs-1"></i>
+          </div>
+          <h5 class="card-title mt-3">Uso de memoria</h5>
+          <a [routerLink]="['/wizard', 'memoria']" class="btn btn-outline-success mt-2">
+            Iniciar diagnóstico
+          </a>
         </div>
       </div>
     </div>
 
-    <!-- Card 3 -->
-    <div class="col-md-4 mb-4 ">
-      <div class="card h-100 bg-light">
-        <div class="card-body">
-          <h5 class="card-title">Espacio en disco</h5>
-         <a class="nav-link" [routerLink]="['/wizard', 'disco']"><i class="bi bi-plus-square fs-1"></i></a>
-
+    <!-- Espacio en disco -->
+    <div class="col-md-4 mb-4">
+      <div class="card card-dashboard shadow-sm">
+        <div class="card-body text-center">
+          <div class="icon-box text-primary">
+            <i class="bi bi-hdd fs-1"></i>
+          </div>
+          <h5 class="card-title mt-3">Espacio en disco</h5>
+          <a [routerLink]="['/wizard', 'disco']" class="btn btn-outline-primary mt-2">
+            Iniciar diagnóstico
+          </a>
         </div>
       </div>
     </div>
+
   </div>
+</main>
 
-  <router-outlet></router-outlet>
-</main> 
 <app-footer></app-footer>

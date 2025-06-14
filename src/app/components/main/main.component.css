@@ -1,13 +1,62 @@
 
-main{
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: 20px;
-    min-height: 350px;
+.main-content {
+  padding: 10rem;
+  min-height: calc(100vh - 220px); /* ajusta según altura del navbar + footer */
+  justify-content: center;
+  align-items: center;
+}
+.card-dashboard {
+  border-radius: 1rem;
+  background: #f8f9fa;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.row{
+.card-dashboard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
 
-    padding: 100px;
+.icon-box {
+  width: 90px;
+  height: 90px;
+  background: #e9f5ff;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.btn-outline-info,
+.btn-outline-success,
+.btn-outline-primary {
+  border-radius: 50px;
+  padding: 6px 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.card-custom {
+  min-height: 220px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card-custom:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 123, 255, 0.2);
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.nav-link i {
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover i {
+  color: #0d6efd;
 }

@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+
+<div class="d-flex custom-wrapper">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div *ngFor="let tipo of tipos" class="sidebar-item" [class.active]="filtro === tipo.nombre" (click)="filtro = tipo.nombre; filtrar()">
+      <span>{{ tipo.label }}</span>
+      <span class="count">{{ tipo.total }}</span>
+    </div>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="content">
+    <h2 class="page-title"> Historial de Diagnósticos</h2>
+
+    <!-- Encabezados tipo tabla -->
+    <div class="table-header card-row">
+      <div>ID</div>
+      <div>Tipo</div>
+      <div>Iteraciones</div>
+      <div>Intervalo</div>
+      <div>Fecha</div>
+      <div>Estado</div>
+      <div>Acción</div>
+    </div>
+
+    <!-- Tarjetas -->
+    <div *ngFor="let e of filtradas" class="card-row card-data shadow-sm">
+      <div>#{{ e.id }}</div>
+      <div>{{ e.tipo }}</div>
+      <div>{{ e.iteraciones }}</div>
+      <div>{{ e.intervalo }} s</div>
+      <div>{{ e.fecha_inicio | date:'short' }}</div>
+      <div>
+        <span class="status-pill" [ngClass]="{
+          'pill-progreso': e.estado === 'en progreso',
+          'pill-finalizado': e.estado === 'finalizado'
+        }">{{ e.estado }}</span>
+      </div>
+      <div>
+        <button class="btn btn-sm btn-outline-primary" [disabled]="e.estado !== 'finalizado'" (click)="verResultado(e.tipo, e.id)">
+          Ver
+        </button>
+      </div>
+      <div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+
+<div class="results-container">
+  <div class="header">
+    <h2>📊 Resultados de Diagnóstico: {{ tipo }}</h2>
+    <button class="back-btn" (click)="volver()">← Volver</button>
+    <button class="btn btn-outline-primary mt-3" (click)="descargarPDF()">
+  Descargar como PDF
+</button>
+  </div>
+
+  <div *ngIf="resultados.length === 0" class="empty-state">
+    No hay resultados para mostrar.
+  </div>
+
+  <div *ngFor="let grupo of resultados; let i = index" class="iteration-card">
+    <h5 class="iteration-title">Iteración {{ i + 1 }}</h5>
+
+    <div class="styled-table">
+      <div class="table-header">
+        <div *ngFor="let campo of getCampos(grupo[0])" class="cell header-cell">
+          {{ campo.nombre }}
+        </div>
+      </div>
+      <div *ngFor="let fila of grupo" class="table-row">
+        <div *ngFor="let campo of getCampos(fila)" class="cell">
+          {{ campo.valor }}
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -5,6 +5,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-wizard',
@@ -49,7 +50,12 @@ export class WizardComponent implements OnInit {
   finalizar() {
     const frecuenciaNum = Number(this.intervalo);
     if (!this.tipo || !frecuenciaNum || this.iteraciones <= 0) {
-      alert('Por favor, completa todos los campos.');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Campos incompletos',
+        text: 'Por favor, completa todos los campos.',
+        confirmButtonColor: '#0d6efd'
+      });
       return;
     }
 
@@ -61,8 +67,29 @@ export class WizardComponent implements OnInit {
     };
 
     this.diagnosticoService.runDiagnostics(data).subscribe({
-      next: () => alert('Diagnóstico en ejecución.'),
-      error: () => alert('Error al ejecutar el diagnóstico.'),
+      next: (res: any) => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Diagnóstico en ejecución',
+          text: 'Tu diagnóstico ha comenzado correctamente.',
+          confirmButtonColor: '#198754'
+        }).then(() => {
+          if (this.modoResultado === 'correo') {
+            this.router.navigate(['/']);
+          } else {
+            this.router.navigate(['/resultados']);
+          }
+        });
+      },
+      error: (err) => {
+        console.error(err);
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Error al ejecutar el diagnóstico.',
+          confirmButtonColor: '#dc3545'
+        });
+      },
     });
   }
 

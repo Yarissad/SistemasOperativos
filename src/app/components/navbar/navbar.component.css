@@ -1,57 +1,57 @@
-@import url('https://fonts.googleapis.com/css?family=Averia+Serif+Libre|Bubblegum+Sans|Caveat+Brush|Chewy|Lobster+Two');
+@import url('https://fonts.googleapis.com/css?family=Lobster+Two');
 
-
-body {
-    width: 100%;
-    height: 100%;
-}
-
-html {
-    width: 100%;
-    height: 100%;
-}
-
-.navbar {
-    border: 0;
-    z-index: 9999;
-    letter-spacing: 4px;
-
-}
-.logo {
-    display: block;
-    height: auto;
-    width: 52px;
-    padding-top: 5px;
-    margin-right: 15px;
-}
-
-.navbar-brand>img {
+/* Estructura general */
+body, html {
+  width: 100%;
   height: 100%;
-  padding: 15px; /* firefox bug fix */
-  width: auto;
-}
-.navbar .nav > li > a {
-  line-height: 50px;
+  margin: 0;
+  padding: 0;
 }
 
-.navbar-header h1 {
-    letter-spacing: 1px;
-    color: black !important;
-    font-family: 'Lobster Two', cursive;
+/* Navbar personalizada */
+.custom-navbar {
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 10px 0;
+  border-bottom: 2px solid #e3f2fd;
+  z-index: 9999;
 }
 
-.navbar li a, .navbar {
-    color: black !important;
-    font-size: 12px;
-    transition: all 0.6s 0s;
+.navbar-title {
+  font-family: 'Lobster Two', cursive;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
 }
 
-.navbar-toggle {
-    background-color: transparent !important;
-    border: 0;
+.navbar-nav li a {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333 !important;
+  transition: color 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 6px;
 }
 
-.navbar-nav li a:hover, .navbar-nav li.active a {
-    color: red !important;
+.navbar-nav li a:hover {
+  background-color: #e0f7fa;
+  color: #007bff !important;
 }
 
+/* Logo ajustes */
+.navbar img {
+  display: block;
+  height: auto;
+  width: 50px;
+  object-fit: contain;
+}
+
+/* Responsive optional */
+@media (max-width: 768px) {
+  .navbar-title {
+    font-size: 1.5rem;
+  }
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
